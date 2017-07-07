@@ -6,7 +6,13 @@
   "repository": "https://github.com/viterbox/liketor-api",
   "author": "franco AM viterbo",
   "license": "MIT",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint . --ext .js --quiet"
+  },
   "dependencies": {
     "hapi": "^16.4.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.1.1"
   }
 }
