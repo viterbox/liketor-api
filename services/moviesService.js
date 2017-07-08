@@ -27,16 +27,16 @@ exports.postMovieLike = (movieId, userId, like, callback) => {
     
     const data = buildData(movieId, userId, like);
     const likesCollection = dataSource.get().collection("movieLikes");
-    likesCollection.insertOne(data,function(err, result) {
-
-        if(err == null && result.insertedCount == 1){
-            console.log("Data Inserted");
+    likesCollection.updateOne({movie_id:data.movie_id, user_id: data.user_id }, {$set:data}, {upsert:true}, (err, result)=>{
+        if(err == null){
+            console.log("Data persisted");
             data.created_date = new Date(data.created_date);
             data.updated_date = new Date(data.updated_date);
             result = data;
         }	
 
         callback(err, result);
+
     });
 };
 
