@@ -1,9 +1,16 @@
 "use strict";
 
+const moviesController = require("../controllers/moviesController");
 
 exports.endoints = [
     {
-        method:"GET", path:"/movies/now_playing", handler: function (request, reply) {reply("Hello");}
+        method:"GET", 
+        path:"/movies/now_playing", 
+        handler: (request, reply) => {
+            reply( 
+                moviesController.getMoviesNowPlaying(request)
+            );
+        }
     }
 ];
 
