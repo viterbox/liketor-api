@@ -8,3 +8,17 @@ exports.getMoviesNowPlaying = (request, callback) => {
         callback(err,result);
     });
 };
+
+exports.postMovieLike = (request, callback) => {
+    moviesService.postMovieLike(request.params.movie_id, request.payload.user_id, request.payload.like, (err,result) => {
+        if (err) {
+            throw err;
+        }
+
+        const data = {
+            likes: result
+        };
+
+        callback(err,data);
+    });
+};
