@@ -39,3 +39,18 @@ exports.postMovieLike = (movieId, userId, like, callback) => {
         callback(err, result);
     });
 };
+
+exports.getMovieLike = (movieId, callback) => {
+
+    const likesCollection = dataSource.get().collection("movieLikes");
+    likesCollection.find({"movie_id":parseInt(movieId)}).toArray((err, docs) => {
+        console.log(docs);
+        
+        callback(err, docs.map((item) => {
+            item.created_date = new Date(item.created_date);
+            item.updated_date = new Date(item.updated_date);
+            return item;
+        }));
+    });
+
+};
