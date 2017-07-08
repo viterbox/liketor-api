@@ -16,7 +16,7 @@ exports.postMovieLike = (request, callback) => {
         }
 
         const data = {
-            likes: result
+            like: result
         };
 
         callback(err,data);
