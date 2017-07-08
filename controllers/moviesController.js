@@ -22,3 +22,17 @@ exports.postMovieLike = (request, callback) => {
         callback(err,data);
     });
 };
+
+exports.getMovieLike = (request, callback) => {
+    moviesService.getMovieLike(request.params.movie_id, (err,result) => {
+        if (err) {
+            throw err;
+        }
+
+        const data = {
+            likes: result
+        };
+
+        callback(err,data);
+    });
+};
