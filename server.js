@@ -14,7 +14,7 @@ dataSource.connect((err)=> {
         throw err;
     }
 
-    console.log("DataSourcer connected");
+    console.log("DataSource connected");
 
     server.start((err) => {
 
