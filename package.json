@@ -10,7 +10,8 @@
     "lint": "./node_modules/.bin/eslint . --ext .js --quiet"
   },
   "dependencies": {
-    "hapi": "^16.4.3"
+    "hapi": "^16.4.3",
+    "mongodb": "^2.2.30"
   },
   "devDependencies": {
     "eslint": "^4.1.1"
