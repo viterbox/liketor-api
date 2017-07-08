@@ -2,8 +2,6 @@ const movieApiKey = process.env.MOVIE_DB;
 const mdb = require("moviedb")(movieApiKey);
 const dataSource = require("../config/dataSource");
 
-const likesCollection = dataSource.get().collection("movieLikes");
-
 const buildData = (movieId, userId, like) => {
 
     const currentDate = new Date().getTime();
@@ -28,6 +26,7 @@ exports.getMoviesNowPlaying = (callback) => {
 exports.postMovieLike = (movieId, userId, like, callback) => {
     
     const data = buildData(movieId, userId, like);
+    const likesCollection = dataSource.get().collection("movieLikes");
     likesCollection.insertOne(data,function(err, result) {
 
         if(err == null && result.insertedCount == 1){
