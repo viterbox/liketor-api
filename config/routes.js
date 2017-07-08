@@ -20,6 +20,15 @@ exports.endoints = [
                 reply(result);
             });
         }
+    },
+    {
+        method:"GET", 
+        path:"/movies/{movie_id}/likes", 
+        handler: (request, reply) => {
+            moviesController.getMovieLike(request,(err, result)=> {
+                reply(result);
+            });
+        }
     }
 ];
 
