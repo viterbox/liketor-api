@@ -54,3 +54,12 @@ exports.getMovieLike = (movieId, callback) => {
     });
 
 };
+
+exports.deleteMovieLike = (movieId, userId, callback) => {
+
+    const likesCollection = dataSource.get().collection("movieLikes");
+    likesCollection.remove({movie_id:parseInt(movieId), user_id:userId },(err,result) =>{
+        console.log(result);
+        callback(err,result);
+    });
+};
