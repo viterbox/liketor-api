@@ -4,7 +4,7 @@ const moviesController = require("../controllers/moviesController");
 
 exports.endoints = [
     {
-        method:"GET", 
+        method:"get", 
         path:"/movies/now_playing", 
         handler: (request, reply) => {
             moviesController.getMoviesNowPlaying(request,(err, result)=> {
