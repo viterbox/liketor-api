@@ -27,7 +27,7 @@ exports.postMovieLike = (movieId, userId, like, callback) => {
     
     const data = buildData(movieId, userId, like);
     const likesCollection = dataSource.get().collection("movieLikes");
-    likesCollection.updateOne({movie_id:data.movie_id, user_id: data.user_id }, {$set:data}, {upsert:true}, (err, result)=>{
+    likesCollection.updateOne({movie_id:data.movie_id, user_id:data.user_id }, {$set:data}, {upsert:true}, (err,result) => {
         if(err == null){
             console.log("Data persisted");
             data.created_date = new Date(data.created_date);
@@ -43,7 +43,7 @@ exports.postMovieLike = (movieId, userId, like, callback) => {
 exports.getMovieLike = (movieId, callback) => {
 
     const likesCollection = dataSource.get().collection("movieLikes");
-    likesCollection.find({"movie_id":parseInt(movieId)}).toArray((err, docs) => {
+    likesCollection.find({movie_id:parseInt(movieId)}).toArray((err,docs) => {
         console.log(docs);
         
         callback(err, docs.map((item) => {
@@ -52,13 +52,12 @@ exports.getMovieLike = (movieId, callback) => {
             return item;
         }));
     });
-
 };
 
 exports.deleteMovieLike = (movieId, userId, callback) => {
 
     const likesCollection = dataSource.get().collection("movieLikes");
-    likesCollection.remove({movie_id:parseInt(movieId), user_id:userId },(err,result) =>{
+    likesCollection.remove({movie_id:parseInt(movieId), user_id:userId },(err,result) => {
         console.log(result);
         callback(err,result);
     });

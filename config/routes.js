@@ -7,7 +7,7 @@ exports.endoints = [
         method:"get", 
         path:"/movies/now_playing", 
         handler: (request, reply) => {
-            moviesController.getMoviesNowPlaying(request,(err, result)=> {
+            moviesController.getMoviesNowPlaying(request,(err, result) => {
                 reply(result);
             });
         }
@@ -23,7 +23,7 @@ exports.endoints = [
                 });
                 break;
             case "get":
-                moviesController.getMovieLike(request,(err, result)=> {
+                moviesController.getMovieLike(request,(err, result) => {
                     reply(result);
                 });
                 break;
