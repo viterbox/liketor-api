@@ -24,7 +24,7 @@ exports.postMovieLike = (request, callback) => {
 };
 
 exports.getMovieLike = (request, callback) => {
-    moviesService.getMovieLike(request.params.movie_id, (err,result) => {
+    moviesService.getMovieLike(request.params.movie_id, request.query.user_id, (err,result) => {
         if (err) {
             throw err;
         }

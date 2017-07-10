@@ -40,10 +40,16 @@ exports.postMovieLike = (movieId, userId, like, callback) => {
     });
 };
 
-exports.getMovieLike = (movieId, callback) => {
+exports.getMovieLike = (movieId, userId, callback) => {
+
+    const findFilter = {movie_id:parseInt(movieId)};
+
+    if(userId != null) {
+        findFilter.user_id = parseInt(userId);
+    }
 
     const likesCollection = dataSource.get().collection("movieLikes");
-    likesCollection.find({movie_id:parseInt(movieId)}).toArray((err,docs) => {
+    likesCollection.find(findFilter).toArray((err,docs) => {
         console.log(docs);
         
         callback(err, docs.map((item) => {
