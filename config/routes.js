@@ -13,7 +13,7 @@ exports.endoints = [
         }
     },
     {
-        method:["post","get"],
+        method:["post","get","delete"],
         path:"/movies/{movie_id}/likes",
         handler: (request,reply) => {
             switch (request.method) {
@@ -25,6 +25,12 @@ exports.endoints = [
             case "get":
                 moviesController.getMovieLike(request,(err, result)=> {
                     reply(result);
+                });
+                break;
+            case "delete":
+                moviesController.deletMovieLike(request,(err, result) => {
+                    result = {};
+                    reply(result).code(204);
                 });
                 break;
             default:
