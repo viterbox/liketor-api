@@ -28,6 +28,11 @@ curl -X GET \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json'
 
+curl -X GET \
+  'http://localhost:8000/movies/1/likes?user_id=1' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json'
+
 ## DELETE movieLike
 
 curl -X DELETE \
