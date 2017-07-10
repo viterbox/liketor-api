@@ -36,3 +36,13 @@ exports.getMovieLike = (request, callback) => {
         callback(err,data);
     });
 };
+
+exports.deletMovieLike = (request, callback) => {
+    moviesService.deleteMovieLike(request.params.movie_id, request.payload.user_id, (err,result) => {
+        if (err) {
+            throw err;
+        }
+
+        callback(err,result);
+    });  
+};
