@@ -13,21 +13,24 @@ exports.endoints = [
         }
     },
     {
-        method:"POST",
+        method:["post","get"],
         path:"/movies/{movie_id}/likes",
         handler: (request,reply) => {
-            moviesController.postMovieLike(request,(err,result) => {
-                reply(result);
-            });
-        }
-    },
-    {
-        method:"GET", 
-        path:"/movies/{movie_id}/likes", 
-        handler: (request, reply) => {
-            moviesController.getMovieLike(request,(err, result)=> {
-                reply(result);
-            });
+            switch (request.method) {
+            case "post":
+                moviesController.postMovieLike(request,(err,result) => {
+                    reply(result);
+                });
+                break;
+            case "get":
+                moviesController.getMovieLike(request,(err, result)=> {
+                    reply(result);
+                });
+                break;
+            default:
+                break;
+            } 
+          
         }
     }
 ];
