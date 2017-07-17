@@ -1,5 +1,4 @@
 const MongoClient = require("mongodb").MongoClient;
-
 const url = process.env.MONGO_DB;
 
 const state = {
