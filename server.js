@@ -5,8 +5,8 @@ const routes = require("./config/routes");
 const dataSource = require("./config/dataSource");
 
 const server = new Hapi.Server();
-const port =  process.env.PORT || 8000;
-server.connection({ port: port, host: "localhost" });
+
+server.connection({ port:process.env.PORT || 8000, host: "localhost" });
 
 server.route(routes.endoints);
 
