@@ -1,5 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
-const url = process.env.MONGO_DB || "mongodb://localhost:27017/liketor";
+const url = process.env.MONGO_DBB || "mongodb://localhost:27017/liketor";
 
 const state = {
     db: null,
