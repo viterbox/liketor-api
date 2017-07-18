@@ -2,7 +2,7 @@
   "name": "liketor-api",
   "version": "1.0.0",
   "description": "A simple api with hapiJs",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/viterbox/liketor-api",
   "author": "franco AM viterbo",
   "license": "MIT",
